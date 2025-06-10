@@ -1,0 +1,84 @@
+afys-ewb-website/
+├── index.html
+├── about.html
+├── initiatives.html
+├── programs.html
+├── partnerships.html
+├── news.html
+├── contact.html
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+├── images/
+│   ├── logo.png
+│   ├── logo-footer.png
+│   ├── og-image-home.jpg
+│   ├── og-image-about.jpg
+│   ├── og-image-initiatives.jpg
+│   ├── og-image-programs.jpg
+│   ├── og-image-partnerships.jpg
+│   ├── og-image-news.jpg
+│   ├── og-image-contact.jpg
+│   ├── favicons/
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-32x32.png
+│   │   ├── favicon-16x16.png
+│   │   ├── site.webmanifest
+│   │   └── safari-pinned-tab.svg
+│   ├── hero/
+│   │   └── hero-background.jpg
+│   ├── about/
+│   │   └── about-team-collaboration.jpg
+│   ├── team/
+│   │   └── prof-alaa-el-sadek.jpg
+│   ├── icons/
+│   │   ├── focus-water-management.svg
+│   │   ├── focus-renewable-energy.svg
+│   │   ├── focus-environmental-stewardship.svg
+│   │   ├── focus-innovation-entrepreneurship.svg
+│   ├── initiatives/
+│   │   ├── water-desalination-project.jpg
+│   │   ├── solar-cell-production.jpg
+│   │   ├── smart-irrigation-systems.jpg
+│   │   ├── supply-chain-logistics.jpg
+│   │   ├── agricultural-export-farming.jpg
+│   │   ├── environmental-knowledge-center.jpg
+│   │   ├── e-waste-management.jpg
+│   │   ├── nile-river-cleanup.jpg
+│   │   ├── community-sdg-projects.jpg
+│   │   ├── business-incubator-hub.jpg
+│   │   ├── technology-innovation-center.jpg
+│   │   ├── scientific-research-platform.jpg
+│   │   ├── innovation-exhibition.jpg
+│   │   ├── therapeutic-tourism-egypt.jpg
+│   │   ├── young-scientists-university.jpg
+│   │   ├── afys-ewb-headquarters.jpg
+│   │   └── arab-knowledge-economy-company.jpg
+│   ├── programs/
+│   │   ├── young-scientific-leaders.jpg
+│   │   ├── sdg-workshops.jpg
+│   │   ├── arab-science-ambassadors.jpg
+│   │   ├── curricula-development.jpg
+│   │   ├── vocational-training-aswan.jpg
+│   │   └── conference-content-creation.jpg
+│   ├── partners/
+│   │   ├── ain-shams-university-logo.png
+│   │   ├── nigsd-logo.png
+│   │   ├── misr-el-kheir-logo.png
+│   │   ├── ministry-environment-egypt-logo.png
+│   │   ├── helwan-university-logo.png
+│   │   ├── escwa-tech-centre-logo.png
+│   │   ├── aga-khan-foundation-logo.png
+│   │   ├── agricultural-bank-egypt-logo.png
+│   │   ├── engineers-syndicate-egypt-logo.png
+│   │   ├── aastmt-logo.png
+│   │   ├── telecom-egypt-logo.png
+│   │   ├── cairo-university-nanotech-logo.png
+│   │   └── nile-university-logo.png
+│   ├── news/
+│   │   ├── green-hydrogen-initiative.jpg
+│   │   ├── scientific-leaders-workshop.jpg
+│   │   ├── annual-forum-sdgs.jpg
+│   │   └── societal-responsibility-conference.jpg
+└── CNAME

@@ -1,0 +1,1025 @@
+/* CSS Variables */
+:root {
+    --primary-color: #005A9C; /* Deep Blue */
+    --secondary-color: #4CAF50; /* Green */
+    --accent-color: #FFA000; /* Orange/Gold */
+    --text-color: #333333;
+    --light-text-color: #f8f9fa;
+    --bg-color: #FFFFFF;
+    --light-bg-color: #F4F7F6; /* Slightly off-white for subtle contrast */
+    --border-color: #dee2e6;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --card-hover-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Lato', sans-serif;
+    --container-width: 1200px;
+    --border-radius: 8px;
+    --focus-outline-color: var(--accent-color); /* For accessibility focus rings */
+}
+
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%; /* Usually 16px by default */
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    font-size: 1rem; /* 16px, inherits from html */
+    -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 1.5rem;} /* Page titles (hero, .page-header h1) */
+h2 { font-size: 2.2rem; margin-bottom: 1.2rem;} /* Section titles on pages (e.g., .section-title, .section-title-left) */
+h3 { font-size: 1.8rem; } /* Category titles on initiatives/programs, some main headings in sections (e.g., .category-title), Leadership Profile name */
+h4 { font-size: 1.5rem; } /* Sub-category titles, specific item titles like leadership role, card titles (focus-card), Initiative Card Titles */
+h5 { font-size: 1.25rem; } /* Program card titles */
+h6 { font-size: 1rem; }
+
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+ul, ol { 
+    list-style-position: inside;
+    padding-left: 0; 
+}
+
+ul li, ol li {
+    margin-bottom: 0.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-style: none; 
+}
+.footer-logo { /* Specific class for footer logo */
+    max-width: 150px;
+    margin-top: 15px;
+    filter: brightness(0) invert(1); /* Assumes dark footer bg, light logo */
+}
+
+
+address {
+    font-style: normal; 
+    line-height: 1.7;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem; 
+    padding-right: 1.5rem;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light-bg-color);
+}
+
+.section-title { /* Corresponds to h2 */
+    text-align: center;
+    margin-bottom: 60px;
+    /* font-size: 2.5rem; Already set by h2 */
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+.section-title-left { /* Corresponds to h2 */
+    text-align: left;
+    margin-bottom: 30px;
+    /* font-size: 2.2rem; Already set by h2 */
+}
+.section-title-left::after { 
+    display:none;
+}
+
+
+.mt-1 { margin-top: 0.5rem !important; } 
+.mt-2 { margin-top: 1rem !important; }
+.mt-3 { margin-top: 1.5rem !important; }
+.mt-4 { margin-top: 2rem !important; }
+.mt-5 { margin-top: 3rem !important; }
+
+.text-center { text-align: center !important; }
+.lead-text {
+    font-size: 1.15rem;
+    color: #555;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+.icon-left {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; 
+}
+
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: var(--heading-font);
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    text-decoration: none !important; 
+    line-height: 1.5; 
+}
+.btn:hover {
+    transform: translateY(-2px); 
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: hsl(from var(--primary-color) h s calc(l - 7%)); 
+    border-color: hsl(from var(--primary-color) h s calc(l - 7%));
+    color: var(--light-text-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    border-color: var(--secondary-color);
+}
+.btn-secondary:hover {
+    background-color: hsl(from var(--secondary-color) h s calc(l - 7%));
+    border-color: hsl(from var(--secondary-color) h s calc(l - 7%));
+    color: var(--light-text-color);
+}
+.btn-full-width {
+    display: block;
+    width: 100%;
+}
+
+
+/* Focus states for accessibility */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+    outline: none; 
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--focus-outline-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--focus-outline-color); /* Added for better visibility on complex backgrounds */
+}
+.menu-toggle:focus-visible {
+     outline: 2px solid var(--focus-outline-color);
+     outline-offset: 1px;
+}
+.logo-link:focus-visible {
+    outline: 2px solid var(--focus-outline-color) !important; /* Ensure it overrides */
+    outline-offset: 2px !important;
+    box-shadow: none !important; /* Remove double shadow from global */
+}
+.partner-logo-item a:focus-visible {
+    outline: 2px solid var(--focus-outline-color) !important;
+    outline-offset: 3px !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: none !important; /* Remove double shadow */
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px; 
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color); 
+}
+.logo-link:hover { 
+    color: var(--accent-color); 
+    text-decoration: none; 
+}
+.logo-img {
+    height: 50px;
+    margin-right: 10px;
+}
+.logo-text {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0; 
+    padding: 0; 
+}
+
+.nav-menu li {
+    margin-left: 30px;
+    margin-bottom: 0; 
+}
+
+.nav-menu li a {
+    font-family: var(--heading-font);
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+    text-decoration: none;
+}
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+    width: 100%;
+}
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: var(--secondary-color);
+    text-decoration: none; 
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem; 
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--primary-color); 
+    /* background-image will be set inline in HTML for uniqueness */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: var(--light-text-color);
+    padding: 120px 0;
+    text-align: center;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-content h1 { /* This is h1 */
+    /* font-size: 3.2rem; from h1 global */
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--light-text-color);
+}
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    opacity: 0.9; 
+}
+.hero-content .btn {
+    margin: 10px; 
+}
+
+/* Stats Overview */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+.stat-item {
+    padding: 20px;
+}
+.stat-item .stat-icon { 
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+.stat-item h3 { /* Actual number e.g. 6,549+ */
+    font-size: 2.5rem; 
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+.stat-item p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Focus Areas */
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+}
+.focus-card {
+    background-color: var(--bg-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; 
+    flex-direction: column;
+}
+.focus-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+.focus-icon {
+    width: 70px; 
+    height: 70px;
+    margin-bottom: 20px;
+    align-self: center; 
+}
+.focus-card h3 { /* Key Focus Area Title e.g. Water Security... */
+    /* font-size: 1.4rem; Set from h3 global */
+    margin-bottom: 10px;
+}
+.focus-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0;
+    flex-grow: 1; 
+}
+
+/* About Snippet on Homepage */
+.about-snippet .grid-halves {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+.about-snippet-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+.about-snippet-content h2 { /* "Who We Are" on homepage */
+    /* font-size: 2.2rem; From global h2 and .section-title-left */
+    text-align: left;
+}
+
+/* Latest News Section (Homepage), Program Cards, Initiative Cards (Shared Styles) */
+.news-grid, .initiative-cards-container, .program-cards-container {
+    display: grid;
+    gap: 30px;
+}
+.news-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.initiative-cards-container, .program-cards-container { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+
+.news-card, .program-card, .initiative-card { /* These are <article> elements */
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.news-card:hover, .program-card:hover, .initiative-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+.news-card-img, .program-card img, .initiative-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.news-card-content { /* div inside news-card */
+    padding: 25px;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card-date {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.news-card.event-card .news-card-date {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+.news-card-title { /* This is h3 in homepage news snippet */
+    /* font-size: 1.3rem; from h3 approx global */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.news-card-title a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.news-card-title a:hover {
+    color: var(--secondary-color);
+}
+.news-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+}
+.read-more-link {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-top: auto; 
+}
+.read-more-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+.read-more-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Page Header (for inner pages) */
+.page-header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 60px 0;
+    text-align: center;
+}
+.page-header h1 { /* This is the main h1 on inner pages */
+    color: var(--light-text-color);
+    /* font-size: 2.8rem; from h1 global */
+}
+.page-header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* About Page Specifics */
+.about-content article.content-block h3 { /* Our Story, Our Objectives etc. */
+    /* font-size: 1.8rem; From global h3 */
+}
+.content-block {
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+}
+.content-block ul {
+    list-style-type: disc; 
+    padding-left: 20px;
+}
+.vision-mission-grid { /* section element */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.vision-mission-grid > article { padding: 15px; } 
+.vision-mission-grid article h4 { /* Our Vision, Our Mission */
+    /* font-size: 1.5rem; From global h4 */
+    margin-top:0; 
+}
+
+.leadership article.leadership-profile h3 { /* Prof. Dr. Name */
+    /* font-size: 1.8rem; from global h3 */
+}
+.leadership-profile {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+.profile-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    border: 5px solid var(--light-bg-color);
+}
+.leadership-profile h4 { /* Title (President...) */
+    /* font-size: 1.3rem; approx from global h4 */
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.leadership-profile p {
+    color: #555;
+    font-size: 1rem;
+}
+.leadership-profile p em {
+    display: block;
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--primary-color);
+}
+
+/* Initiatives Page */
+.initiative-category {
+    margin-bottom: 60px;
+}
+.initiative-category > h3.category-title { /* The h3 for category (e.g. Sustainable Development...) */
+    /* font-size: 1.8rem; From global h3 */
+    font-weight: 600;
+    color: var(--primary-color);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.initiative-card h4 { /* Initiative card titles (e.g. Water Security Solutions) */
+    /* font-size: 1.5rem; from global h4 */
+    padding: 15px 25px 0 25px; 
+    margin-bottom: 8px; 
+    color: var(--primary-color);
+}
+.initiative-card p { 
+    font-size: 0.9rem; 
+    padding: 0 25px 25px 25px; 
+    flex-grow: 1; 
+}
+
+/* Programs Page */
+.program-category > h3.category-title { /* Academic Programs, Training... */
+     /* font-size: 1.8rem; from global h3 */
+}
+.program-category {
+    margin-bottom: 50px;
+}
+.program-sub-category {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.program-sub-category h4 { /* Technical Diplomas, Masters */
+    /* font-size: 1.5rem; from global h4 */
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.program-list {
+    list-style: none; 
+    padding-left: 0;
+    column-gap: 30px;
+}
+.program-list.two-column-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+.program-list li {
+    padding: 8px 0 8px 25px; 
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 0.95rem;
+    position: relative;
+}
+.program-list li:last-child {
+    border-bottom: none;
+}
+.program-list li::before {
+    content: "\f058"; 
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900; 
+    color: var(--secondary-color);
+    margin-right: 10px;
+    position: absolute; 
+    left: 0;
+    top: 10px; 
+}
+
+.program-card h5 { /* Program card titles (e.g. "Young Scientific Leaders") */
+    /* font-size: 1.25rem; From global h5 */
+    margin-bottom: 8px;
+    padding: 15px 25px 0 25px; 
+    color: var(--primary-color);
+}
+.program-card p {
+    font-size: 0.9rem;
+    padding: 0 25px 25px 25px; 
+    flex-grow: 1; 
+}
+
+
+/* Partnerships Page */
+.partner-logos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+}
+.partner-logo-item a {
+    display: block; 
+    text-decoration: none;
+}
+
+.partner-logo-item img {
+    max-height: 80px;
+    width: auto;
+    margin: 0 auto 10px auto;
+    filter: grayscale(80%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.partner-logo-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+.partner-logo-item p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+}
+.partners-grid .content-block h3 { /* Our Collaborative Approach */
+    /* font-size: 1.8rem; from global h3 */
+}
+
+
+/* News Listing Page (news.html) */
+.news-list-item { /* article element */
+    display: grid;
+    grid-template-columns: 300px 1fr; 
+    gap: 30px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+.news-list-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.news-list-item-image img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+.news-list-item-date {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+.event-item .news-list-item-date { 
+    color: var(--accent-color);
+    font-weight: bold;
+}
+.news-list-item-title { /* These are h3 on news page */
+    /* font-size: 1.8rem; from global h3 */
+    margin-bottom: 15px;
+}
+.news-list-item-title a { color: var(--primary-color); text-decoration: none;}
+.news-list-item-title a:hover { color: var(--secondary-color); }
+
+.news-list-item p {
+    margin-bottom: 15px;
+}
+
+/* Contact Page */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; 
+    gap: 50px;
+}
+.contact-info h3 { /* Get in Touch Directly */
+    /* font-size: 1.8rem; from global h3 */
+    margin-bottom: 25px;
+}
+.contact-info .contact-item {
+    display: flex;
+    align-items: flex-start; 
+    margin-bottom: 20px;
+}
+.contact-icon {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-right: 15px;
+    width: 30px; 
+    text-align: center;
+    margin-top: 4px; 
+    flex-shrink: 0; 
+}
+.contact-info .social-links h4 { /* Follow Our Journey */
+    font-size: 1.3rem; /* Consistent with footer h4 if desired, or keep smaller */
+    margin-bottom: 10px;
+}
+
+
+.contact-form-container h3 { /* Send Us a Quick Message */
+    /* font-size: 1.8rem; from global h3 */
+    margin-bottom: 25px;
+}
+.contact-form .form-group { /* If using a real form later */
+    margin-bottom: 20px;
+}
+.contact-form label {
+    display: block;
+    margin-bottom: 8px; 
+    font-weight: 500;
+    color: #444; 
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px; 
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px; 
+}
+.form-note small {
+    color: #666;
+}
+
+.map-section .section-title { /* Our Headquarters Location */
+    /* font-size: 2.2rem; Consistent with other section titles */
+}
+.map-section {
+    padding-top: 40px; 
+    padding-bottom: 80px;
+}
+.map-placeholder iframe {
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+/* Footer */
+footer.footer-main { /* Added .footer-main for specificity if ever needed */
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 60px 0 30px 0;
+    font-size: 0.95rem;
+}
+footer a {
+    color: var(--light-text-color); 
+    opacity: 0.85;
+}
+footer a:hover, footer a:focus-visible {
+    color: var(--accent-color); 
+    opacity: 1;
+    text-decoration: underline;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.footer-col h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--light-text-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+.footer-col p {
+    opacity: 0.85;
+    margin-bottom: 0.7rem;
+}
+.footer-col ul {
+    list-style: none;
+    padding-left: 0;
+}
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col .social-links a, .contact-info .social-links .social-icon {
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255, 0.1);
+    color: var(--light-text-color);
+    margin-right: 8px;
+    font-size: 1.1rem;
+    text-decoration: none; 
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.footer-col .social-links a:hover, .contact-info .social-links .social-icon:hover,
+.footer-col .social-links a:focus-visible, .contact-info .social-links .social-icon:focus-visible {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    opacity: 0.8;
+}
+.footer-bottom p {
+    margin-bottom: 5px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    html { font-size: 93.75%; } 
+    h1 { font-size: 2.6rem; }
+    h2.section-title, .section-title-left, .page-header h1 { font-size: 2.2rem; }
+    h3, .news-card-title, .leadership-profile h3 { font-size: 1.7rem; } 
+    h4, .focus-card h3, .initiative-card h4, .program-sub-category h4 { font-size: 1.4rem; }
+    h5, .program-card h5 { font-size: 1.2rem; }
+
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content p { font-size: 1.15rem; }
+
+    .news-list-item { grid-template-columns: 200px 1fr; gap: 25px; } 
+    .news-list-item-image img { height: 200px; }
+    .vision-mission-grid { grid-template-columns: 1fr; }
+    .program-list.two-column-list { columns: 1; -webkit-columns: 1; -moz-columns: 1; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+    html { font-size: 87.5%; } 
+    .nav-menu {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        border-top: 1px solid var(--border-color);
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-menu li {
+        margin: 12px 20px; 
+        text-align: left; 
+    }
+    .nav-menu li a {
+        display: block; 
+        padding: 8px 0;
+    }
+    .nav-menu li a::after { display: none; } 
+    .nav-menu li a.active {
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1rem; }
+    .hero-content .btn { padding: 10px 20px; font-size: 0.9rem; margin-bottom: 10px; display: block; max-width: 280px; margin-left: auto; margin-right: auto;}
+
+    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+    .focus-grid { grid-template-columns: 1fr; }
+    .about-snippet .grid-halves { grid-template-columns: 1fr; text-align: center;}
+    .about-snippet-image { margin-bottom: 30px; }
+    .news-grid { grid-template-columns: 1fr; }
+    
+    .initiative-cards-container { grid-template-columns: 1fr; }
+    .program-cards-container { grid-template-columns: 1fr; }
+    .partner-logos-container { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
+
+    .news-list-item { grid-template-columns: 1fr; text-align: left; }
+    .news-list-item-image { margin: 0 auto 20px auto; max-width: 100%; height: 220px;} 
+
+    .contact-form-container { margin-top: 40px; }
+
+    .footer-grid { grid-template-columns: 1fr; text-align:left;} 
+    .footer-col h4::after { left: 0; transform: translateX(0); } 
+    .footer-col .social-links { text-align: left;} 
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 1.8rem; }
+    .hero-content p { font-size: 0.95rem; }
+    .stats-grid { grid-template-columns: 1fr; } 
+    .section-padding { padding: 60px 0; }
+    h1.page-header, h2.section-title, .section-title-left { font-size: 1.8rem; margin-bottom: 40px;}
+    h3, .news-card-title, .leadership-profile h3 { font-size: 1.5rem; } 
+    h4, .focus-card h3, .initiative-card h4, .program-sub-category h4 { font-size: 1.25rem; }
+    h5, .program-card h5 { font-size: 1.1rem; }
+
+    .container { padding-left: 1rem; padding-right: 1rem; }
+    .page-header { padding: 40px 0; }
+}
