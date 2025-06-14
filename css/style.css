@@ -1,23 +1,57 @@
-/* CSS Variables */
+/*
+========================================
+    Modern AFYS-EWB Stylesheet
+========================================
+1.  Root & Variables
+2.  Global & Reset
+3.  Typography
+4.  Buttons
+5.  Header & Navigation
+6.  Hero Sections
+7.  Homepage (Portal) Styles
+8.  Page-Specific Section Styles (AFYS, EWB)
+9.  Shared Component Styles (Cards, Modals)
+10. Interactive SVG Map
+11. Footer
+12. Responsive Design
+========================================
+*/
+
+/* 1. Root & Variables
+---------------------------------------- */
 :root {
-    --primary-color: #005A9C; /* Deep Blue */
-    --secondary-color: #4CAF50; /* Green */
-    --accent-color: #FFA000; /* Orange/Gold */
-    --text-color: #333333;
-    --light-text-color: #f8f9fa;
-    --bg-color: #FFFFFF;
-    --light-bg-color: #F4F7F6; /* Slightly off-white for subtle contrast */
-    --border-color: #dee2e6;
-    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --card-hover-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    --heading-font: 'Poppins', sans-serif;
-    --body-font: 'Lato', sans-serif;
-    --container-width: 1200px;
-    --border-radius: 8px;
-    --focus-outline-color: var(--accent-color); /* For accessibility focus rings */
+    /* AFYS Palette (Pastel) */
+    --afys-primary: #FFAD7A;      /* Pastel Orange */
+    --afys-secondary: #FF7A7A;    /* Pastel Red */
+    --afys-accent: #A8D8B9;       /* Pastel Green */
+
+    /* EWB Palette (Pastel) */
+    --ewb-primary: #A9D6E5;       /* Pastel Blue */
+    --ewb-secondary: #B4E2B1;    /* Pastel Green (Water) */
+    --ewb-accent-grey: #D3D3D3;      /* Light Grey Water */
+    --ewb-accent-black: #B0B0B0;     /* Dark Grey "Black" Water */
+
+    /* Base Palette */
+    --base-bg: #F9F9F9;
+    --light-bg: #FFFFFF;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --border-color: rgba(0, 0, 0, 0.08);
+
+    /* Fonts & Sizing */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif; /* Using one modern font family */
+    --container-width: 1240px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+
+    /* Effects */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-strong: 0 8px 30px rgba(44, 62, 80, 0.1);
 }
 
-/* Basic Reset & Global Styles */
+/* 2. Global & Reset
+---------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -26,1000 +60,574 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 100%; /* Usually 16px by default */
+    font-size: 100%;
 }
 
 body {
-    font-family: var(--body-font);
+    font-family: var(--font-body);
+    background-color: var(--base-bg);
+    color: var(--text-primary);
     line-height: 1.7;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    font-size: 1rem; /* 16px, inherits from html */
-    -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit */
-    -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font);
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-}
-
-h1 { font-size: 2.8rem; margin-bottom: 1.5rem;} /* Page titles (hero, .page-header h1) */
-h2 { font-size: 2.2rem; margin-bottom: 1.2rem;} /* Section titles on pages (e.g., .section-title, .section-title-left) */
-h3 { font-size: 1.8rem; } /* Category titles on initiatives/programs, some main headings in sections (e.g., .category-title), Leadership Profile name */
-h4 { font-size: 1.5rem; } /* Sub-category titles, specific item titles like leadership role, card titles (focus-card), Initiative Card Titles */
-h5 { font-size: 1.25rem; } /* Program card titles */
-h6 { font-size: 1rem; }
-
-
-p {
-    margin-bottom: 1rem;
-}
-
-a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: color 0.3s ease, opacity 0.3s ease;
-}
-
-a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-ul, ol { 
-    list-style-position: inside;
-    padding-left: 0; 
-}
-
-ul li, ol li {
-    margin-bottom: 0.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    border-style: none; 
-}
-.footer-logo { /* Specific class for footer logo */
-    max-width: 150px;
-    margin-top: 15px;
-    filter: brightness(0) invert(1); /* Assumes dark footer bg, light logo */
-}
-
-
-address {
-    font-style: normal; 
-    line-height: 1.7;
 }
 
 .container {
     max-width: var(--container-width);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem; 
-    padding-right: 1.5rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .bg-light {
-    background-color: var(--light-bg-color);
-}
-
-.section-title { /* Corresponds to h2 */
-    text-align: center;
-    margin-bottom: 60px;
-    /* font-size: 2.5rem; Already set by h2 */
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 15px;
-}
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    border-radius: 2px;
-}
-.section-title-left { /* Corresponds to h2 */
-    text-align: left;
-    margin-bottom: 30px;
-    /* font-size: 2.2rem; Already set by h2 */
-}
-.section-title-left::after { 
-    display:none;
-}
-
-
-.mt-1 { margin-top: 0.5rem !important; } 
-.mt-2 { margin-top: 1rem !important; }
-.mt-3 { margin-top: 1.5rem !important; }
-.mt-4 { margin-top: 2rem !important; }
-.mt-5 { margin-top: 3rem !important; }
-
-.text-center { text-align: center !important; }
-.lead-text {
-    font-size: 1.15rem;
-    color: #555;
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-}
-.icon-left {
-    margin-right: 10px;
-    color: var(--secondary-color);
+    background-color: var(--light-bg);
 }
 
 .visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
     position: absolute;
     width: 1px;
-    white-space: nowrap; 
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Accessibility Focus */
+:focus-visible {
+    outline: 3px solid var(--afys-primary);
+    outline-offset: 3px;
+    border-radius: var(--border-radius-sm);
+}
+.ewb-profile :focus-visible {
+    outline-color: var(--ewb-primary);
 }
 
 
-/* Buttons */
+/* 3. Typography
+---------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+h1 { font-size: 3rem; }
+h2, .section-title { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.25rem; }
+p { margin-bottom: 1.5rem; color: var(--text-secondary); }
+.lead-text {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* 4. Buttons
+---------------------------------------- */
 .btn {
     display: inline-block;
-    padding: 12px 28px;
-    font-family: var(--heading-font);
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
     font-weight: 500;
-    text-align: center;
-    border: 2px solid transparent;
-    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    font-size: 1rem;
-    text-decoration: none !important; 
-    line-height: 1.5; 
-}
-.btn:hover {
-    transform: translateY(-2px); 
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    border-color: var(--primary-color);
+.btn-primary-orange {
+    background-color: var(--afys-primary);
+    color: var(--text-primary);
+    box-shadow: 0 4px 15px hsla(from var(--afys-primary) h s l / 0.4);
 }
-.btn-primary:hover {
-    background-color: hsl(from var(--primary-color) h s calc(l - 7%)); 
-    border-color: hsl(from var(--primary-color) h s calc(l - 7%));
-    color: var(--light-text-color);
-}
-
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: var(--light-text-color);
-    border-color: var(--secondary-color);
-}
-.btn-secondary:hover {
-    background-color: hsl(from var(--secondary-color) h s calc(l - 7%));
-    border-color: hsl(from var(--secondary-color) h s calc(l - 7%));
-    color: var(--light-text-color);
-}
-.btn-full-width {
-    display: block;
-    width: 100%;
+.btn-primary-orange:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px hsla(from var(--afys-primary) h s l / 0.5);
 }
 
-
-/* Focus states for accessibility */
-a:focus, button:focus, input:focus, textarea:focus, select:focus {
-    outline: none; 
+.btn-primary-blue {
+    background-color: var(--ewb-primary);
+    color: var(--text-primary);
+    box-shadow: 0 4px 15px hsla(from var(--ewb-primary) h s l / 0.4);
 }
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-    outline: 3px solid var(--focus-outline-color);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--focus-outline-color); /* Added for better visibility on complex backgrounds */
-}
-.menu-toggle:focus-visible {
-     outline: 2px solid var(--focus-outline-color);
-     outline-offset: 1px;
-}
-.logo-link:focus-visible {
-    outline: 2px solid var(--focus-outline-color) !important; /* Ensure it overrides */
-    outline-offset: 2px !important;
-    box-shadow: none !important; /* Remove double shadow from global */
-}
-.partner-logo-item a:focus-visible {
-    outline: 2px solid var(--focus-outline-color) !important;
-    outline-offset: 3px !important;
-    border-radius: var(--border-radius) !important;
-    box-shadow: none !important; /* Remove double shadow */
+.btn-primary-blue:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px hsla(from var(--ewb-primary) h s l / 0.5);
 }
 
-/* Header & Navigation */
+/* 5. Header & Navigation
+---------------------------------------- */
 header {
-    background-color: var(--bg-color);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
+    width: 100%;
     z-index: 1000;
-    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
 }
-
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 70px; 
+    height: 80px;
 }
-
-.logo-link {
+.logo-link-main {
     display: flex;
     align-items: center;
+    gap: 15px;
     text-decoration: none;
-    color: var(--primary-color); 
 }
-.logo-link:hover { 
-    color: var(--accent-color); 
-    text-decoration: none; 
+.logo-img { height: 45px; }
+.logo-separator {
+    height: 30px;
+    width: 1px;
+    background-color: var(--border-color);
 }
-.logo-img {
-    height: 50px;
-    margin-right: 10px;
-}
-.logo-text {
-    font-family: var(--heading-font);
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
 .nav-menu {
-    list-style: none;
     display: flex;
-    align-items: center;
-    margin: 0; 
-    padding: 0; 
+    list-style: none;
+    gap: 35px;
 }
-
-.nav-menu li {
-    margin-left: 30px;
-    margin-bottom: 0; 
-}
-
-.nav-menu li a {
-    font-family: var(--heading-font);
-    font-weight: 500;
-    color: var(--text-color);
-    font-size: 1rem;
-    padding: 5px 0;
-    position: relative;
+.nav-menu a {
     text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
 }
-.nav-menu li a::after {
+.nav-menu a::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -5px;
     left: 0;
-    width: 0;
+    width: 0%;
     height: 2px;
-    background-color: var(--secondary-color);
+    background-color: var(--afys-primary);
     transition: width 0.3s ease;
 }
-.nav-menu li a:hover::after,
-.nav-menu li a.active::after {
+.nav-menu a.active::after, .nav-menu a:hover::after {
     width: 100%;
 }
-.nav-menu li a:hover,
-.nav-menu li a.active {
-    color: var(--secondary-color);
-    text-decoration: none; 
-}
+.nav-menu a.active { color: var(--afys-primary); }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    cursor: pointer;
-    padding: 0.5rem; 
-}
+.menu-toggle { display: none; /* Mobile only */ }
 
-/* Hero Section */
+/* 6. Hero Sections
+---------------------------------------- */
 .hero {
-    background-color: var(--primary-color); 
-    /* background-image will be set inline in HTML for uniqueness */
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    color: var(--light-text-color);
-    padding: 120px 0;
-    text-align: center;
-    min-height: 75vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 4rem 0;
+    background-size: cover;
+    background-position: center;
 }
-.hero-content h1 { /* This is h1 */
-    /* font-size: 3.2rem; from h1 global */
+.hero-content {
+    max-width: 900px;
+}
+.hero-content h1 {
+    color: #fff;
     font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--light-text-color);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
 }
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.8;
-    opacity: 0.9; 
-}
-.hero-content .btn {
-    margin: 10px; 
-}
-
-/* Stats Overview */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    text-align: center;
-}
-.stat-item {
-    padding: 20px;
-}
-.stat-item .stat-icon { 
-    font-size: 3rem;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-}
-.stat-item h3 { /* Actual number e.g. 6,549+ */
-    font-size: 2.5rem; 
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 5px;
-}
-.stat-item p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 0;
-}
-
-/* Focus Areas */
-.focus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 30px;
-}
-.focus-card {
-    background-color: var(--bg-color);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; 
-    flex-direction: column;
-}
-.focus-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--card-hover-shadow);
-}
-.focus-icon {
-    width: 70px; 
-    height: 70px;
-    margin-bottom: 20px;
-    align-self: center; 
-}
-.focus-card h3 { /* Key Focus Area Title e.g. Water Security... */
-    /* font-size: 1.4rem; Set from h3 global */
-    margin-bottom: 10px;
-}
-.focus-card p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 0;
-    flex-grow: 1; 
-}
-
-/* About Snippet on Homepage */
-.about-snippet .grid-halves {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-.about-snippet-image img {
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-}
-.about-snippet-content h2 { /* "Who We Are" on homepage */
-    /* font-size: 2.2rem; From global h2 and .section-title-left */
-    text-align: left;
-}
-
-/* Latest News Section (Homepage), Program Cards, Initiative Cards (Shared Styles) */
-.news-grid, .initiative-cards-container, .program-cards-container {
-    display: grid;
-    gap: 30px;
-}
-.news-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.initiative-cards-container, .program-cards-container { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-
-
-.news-card, .program-card, .initiative-card { /* These are <article> elements */
-    background-color: var(--bg-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.news-card:hover, .program-card:hover, .initiative-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--card-hover-shadow);
-}
-.news-card-img, .program-card img, .initiative-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.news-card-content { /* div inside news-card */
-    padding: 25px;
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-}
-
-.news-card-date {
-    display: block;
-    font-size: 0.85rem;
-    color: #777;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-.news-card.event-card .news-card-date {
-    color: var(--accent-color);
-    font-weight: bold;
-}
-.news-card-title { /* This is h3 in homepage news snippet */
-    /* font-size: 1.3rem; from h3 approx global */
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-.news-card-title a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-.news-card-title a:hover {
-    color: var(--secondary-color);
-}
-.news-card p {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 15px;
-    flex-grow: 1; 
-}
-.read-more-link {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--secondary-color);
-    text-decoration: none;
-    margin-top: auto; 
-}
-.read-more-link i {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-.read-more-link:hover i {
-    transform: translateX(3px);
-}
-
-/* Page Header (for inner pages) */
-.page-header {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 60px 0;
-    text-align: center;
-}
-.page-header h1 { /* This is the main h1 on inner pages */
-    color: var(--light-text-color);
-    /* font-size: 2.8rem; from h1 global */
-}
-.page-header p {
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-    opacity: 0.9;
+    font-weight: 300;
 }
 
-/* About Page Specifics */
-.about-content article.content-block h3 { /* Our Story, Our Objectives etc. */
-    /* font-size: 1.8rem; From global h3 */
-}
-.content-block {
-    margin-bottom: 40px;
-    padding: 25px;
-    background-color: var(--bg-color);
-    border-radius: var(--border-radius);
-}
-.content-block ul {
-    list-style-type: disc; 
-    padding-left: 20px;
-}
-.vision-mission-grid { /* section element */
+/* 7. Homepage (Portal) Styles
+---------------------------------------- */
+.pathway-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 2rem;
 }
-.vision-mission-grid > article { padding: 15px; } 
-.vision-mission-grid article h4 { /* Our Vision, Our Mission */
-    /* font-size: 1.5rem; From global h4 */
-    margin-top:0; 
-}
-
-.leadership article.leadership-profile h3 { /* Prof. Dr. Name */
-    /* font-size: 1.8rem; from global h3 */
-}
-.leadership-profile {
-    text-align: center;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 30px;
-    background: var(--bg-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-}
-.profile-image {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 20px auto;
-    border: 5px solid var(--light-bg-color);
-}
-.leadership-profile h4 { /* Title (President...) */
-    /* font-size: 1.3rem; approx from global h4 */
-    color: var(--secondary-color);
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-.leadership-profile p {
-    color: #555;
-    font-size: 1rem;
-}
-.leadership-profile p em {
-    display: block;
-    margin-top: 15px;
-    font-style: italic;
-    color: var(--primary-color);
-}
-
-/* Initiatives Page */
-.initiative-category {
-    margin-bottom: 60px;
-}
-.initiative-category > h3.category-title { /* The h3 for category (e.g. Sustainable Development...) */
-    /* font-size: 1.8rem; From global h3 */
-    font-weight: 600;
-    color: var(--primary-color);
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--border-color);
-    margin-bottom: 30px;
-}
-
-.initiative-card h4 { /* Initiative card titles (e.g. Water Security Solutions) */
-    /* font-size: 1.5rem; from global h4 */
-    padding: 15px 25px 0 25px; 
-    margin-bottom: 8px; 
-    color: var(--primary-color);
-}
-.initiative-card p { 
-    font-size: 0.9rem; 
-    padding: 0 25px 25px 25px; 
-    flex-grow: 1; 
-}
-
-/* Programs Page */
-.program-category > h3.category-title { /* Academic Programs, Training... */
-     /* font-size: 1.8rem; from global h3 */
-}
-.program-category {
-    margin-bottom: 50px;
-}
-.program-sub-category {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.program-sub-category h4 { /* Technical Diplomas, Masters */
-    /* font-size: 1.5rem; from global h4 */
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-.program-list {
-    list-style: none; 
-    padding-left: 0;
-    column-gap: 30px;
-}
-.program-list.two-column-list {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-}
-.program-list li {
-    padding: 8px 0 8px 25px; 
-    border-bottom: 1px dashed var(--border-color);
-    font-size: 0.95rem;
+.pathway-card {
     position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.4s ease;
+    box-shadow: var(--shadow-strong);
 }
-.program-list li:last-child {
-    border-bottom: none;
+.pathway-card:hover {
+    transform: scale(1.03);
 }
-.program-list li::before {
-    content: "\f058"; 
-    font-family: "Font Awesome 6 Free"; 
-    font-weight: 900; 
-    color: var(--secondary-color);
-    margin-right: 10px;
-    position: absolute; 
-    left: 0;
-    top: 10px; 
+.pathway-card-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
 }
-
-.program-card h5 { /* Program card titles (e.g. "Young Scientific Leaders") */
-    /* font-size: 1.25rem; From global h5 */
-    margin-bottom: 8px;
-    padding: 15px 25px 0 25px; 
-    color: var(--primary-color);
+.pathway-card:hover .pathway-card-bg {
+    transform: scale(1.1);
 }
-.program-card p {
-    font-size: 0.9rem;
-    padding: 0 25px 25px 25px; 
-    flex-grow: 1; 
+.pathway-card::after { /* Gradient overlay */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
 }
-
-
-/* Partnerships Page */
-.partner-logos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 40px;
-    align-items: center;
-    text-align: center;
+.pathway-content {
+    position: relative;
+    z-index: 2;
 }
-.partner-logo-item a {
-    display: block; 
+.pathway-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+.pathway-content h3 { color: #fff; font-size: 2rem; }
+.pathway-content p { color: rgba(255,255,255,0.8); }
+.btn-pathway {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #fff;
     text-decoration: none;
 }
+.afys-card .btn-pathway { color: var(--afys-primary); }
+.ewb-card .btn-pathway { color: var(--ewb-primary); }
 
-.partner-logo-item img {
-    max-height: 80px;
-    width: auto;
-    margin: 0 auto 10px auto;
-    filter: grayscale(80%);
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-.partner-logo-item:hover img {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.05);
-}
-.partner-logo-item p {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 0;
-}
-.partners-grid .content-block h3 { /* Our Collaborative Approach */
-    /* font-size: 1.8rem; from global h3 */
+.combined-vision .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
+/* 8. Page-Specific Section Styles (AFYS, EWB)
+---------------------------------------- */
+.page-header-simple { /* For AFYS, EWB profile pages */
+    text-align: center;
+    padding: 80px 0;
+}
+.page-header-simple h1 { font-size: 3rem; }
+.page-header-simple .lead-text { max-width: 800px; margin: 1.5rem auto 0; }
+.ewb-profile .page-header-simple h1 span { color: var(--ewb-primary); }
+.afys-profile .page-header-simple h1 span { color: var(--afys-primary); }
 
-/* News Listing Page (news.html) */
-.news-list-item { /* article element */
+/* Glass Card style */
+.card-glass {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-light);
+}
+.two-col-grid {
     display: grid;
-    grid-template-columns: 300px 1fr; 
-    gap: 30px;
-    margin-bottom: 50px;
-    padding-bottom: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+/* EWB Profile Specifics */
+.swot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.swot-card {
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+}
+.swot-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.swot-card h4 .fa-plus-circle { color: var(--ewb-secondary); }
+.swot-card h4 .fa-minus-circle { color: var(--afys-secondary); }
+.swot-card h4 .fa-star { color: var(--afys-primary); }
+.swot-card h4 .fa-exclamation-triangle { color: #f39c12; }
+.swot-card ul { list-style: none; padding-left: 0; }
+.swot-card ul li {
+    font-size: 0.95rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+.swot-card ul li::before {
+    content: '\2022';
+    color: var(--ewb-primary);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    top: 0;
+    left: 0.5em;
+}
+
+/* Data Tables */
+.data-table-wrapper { overflow-x: auto; }
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
-.news-list-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
+.data-table th {
+    background-color: var(--base-bg);
+    font-weight: 600;
 }
-.news-list-item-image img {
-    width: 100%;
-    height: 250px; 
-    object-fit: cover;
-    border-radius: var(--border-radius);
-}
-.news-list-item-date {
-    display: block;
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 10px;
-}
-.event-item .news-list-item-date { 
-    color: var(--accent-color);
-    font-weight: bold;
-}
-.news-list-item-title { /* These are h3 on news page */
-    /* font-size: 1.8rem; from global h3 */
-    margin-bottom: 15px;
-}
-.news-list-item-title a { color: var(--primary-color); text-decoration: none;}
-.news-list-item-title a:hover { color: var(--secondary-color); }
+.data-table tr:hover { background-color: hsla(from var(--ewb-primary) h s 95%); }
+.data-table td:first-child { font-weight: 500; }
+.data-table .highlight-row { background-color: hsla(from var(--ewb-secondary) h s 90%); font-weight: 600;}
 
-.news-list-item p {
-    margin-bottom: 15px;
-}
-
-/* Contact Page */
-.contact-grid {
+/* 9. Shared Component Styles (News Cards, Modals)
+---------------------------------------- */
+.news-grid-afys {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; 
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
 }
-.contact-info h3 { /* Get in Touch Directly */
-    /* font-size: 1.8rem; from global h3 */
-    margin-bottom: 25px;
-}
-.contact-info .contact-item {
+.news-card-summary {
+    background: var(--light-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: all 0.3s ease;
     display: flex;
-    align-items: flex-start; 
-    margin-bottom: 20px;
+    flex-direction: column;
 }
-.contact-icon {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    margin-right: 15px;
-    width: 30px; 
-    text-align: center;
-    margin-top: 4px; 
-    flex-shrink: 0; 
+.news-card-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
 }
-.contact-info .social-links h4 { /* Follow Our Journey */
-    font-size: 1.3rem; /* Consistent with footer h4 if desired, or keep smaller */
-    margin-bottom: 10px;
+.news-card-img-summary { height: 220px; width: 100%; object-fit: cover; }
+.news-card-content-summary {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
-
-
-.contact-form-container h3 { /* Send Us a Quick Message */
-    /* font-size: 1.8rem; from global h3 */
-    margin-bottom: 25px;
+.news-card-content-summary .date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--afys-primary);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
 }
-.contact-form .form-group { /* If using a real form later */
-    margin-bottom: 20px;
-}
-.contact-form label {
-    display: block;
-    margin-bottom: 8px; 
-    font-weight: 500;
-    color: #444; 
-}
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 12px 15px; 
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    font-family: var(--body-font);
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.contact-form textarea {
-    resize: vertical;
-    min-height: 120px; 
-}
-.form-note small {
-    color: #666;
+.news-card-content-summary h4 { margin-bottom: 0.5rem; }
+.news-card-content-summary p { font-size: 0.95rem; flex-grow: 1; }
+.news-card-content-summary .read-article-link {
+    color: var(--afys-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
 }
 
-.map-section .section-title { /* Our Headquarters Location */
-    /* font-size: 2.2rem; Consistent with other section titles */
+/* Modal for Map */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2000;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
 }
-.map-section {
-    padding-top: 40px; 
-    padding-bottom: 80px;
-}
-.map-placeholder iframe {
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-}
-
-/* Footer */
-footer.footer-main { /* Added .footer-main for specificity if ever needed */
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 60px 0 30px 0;
-    font-size: 0.95rem;
-}
-footer a {
-    color: var(--light-text-color); 
-    opacity: 0.85;
-}
-footer a:hover, footer a:focus-visible {
-    color: var(--accent-color); 
+.modal-overlay.active {
     opacity: 1;
-    text-decoration: underline;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+.modal-content {
+    background: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-md);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+.modal-content h3 { color: var(--ewb-primary); margin-bottom: 1rem;}
+.modal-content ul { list-style-position: outside; padding-left: 1.2rem; }
+
+/* 10. Interactive SVG Map
+---------------------------------------- */
+#egypt-map-container {
+    margin: 3rem 0;
+    text-align: center;
+}
+#egypt-map {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+}
+#egypt-map .governorate {
+    fill: var(--ewb-accent-grey);
+    stroke: var(--light-bg);
+    stroke-width: 1.5;
+    transition: fill 0.3s ease;
+}
+#egypt-map .governorate:hover {
+    fill: var(--ewb-primary);
+}
+#egypt-map .clickable {
+    cursor: pointer;
+}
+#egypt-map .clickable:hover {
+    fill: var(--ewb-secondary);
+}
+
+/* 11. Footer
+---------------------------------------- */
+.footer-main {
+    background: var(--text-primary);
+    color: rgba(255,255,255,0.7);
+    padding: 80px 0 40px;
 }
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 .footer-col h4 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--light-text-color);
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-.footer-col h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--secondary-color);
-}
-.footer-col p {
-    opacity: 0.85;
-    margin-bottom: 0.7rem;
-}
-.footer-col ul {
-    list-style: none;
-    padding-left: 0;
-}
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-.footer-col .social-links a, .contact-info .social-links .social-icon {
-    display: inline-flex; 
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255, 0.1);
-    color: var(--light-text-color);
-    margin-right: 8px;
+    color: #fff;
     font-size: 1.1rem;
-    text-decoration: none; 
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
 }
-.footer-col .social-links a:hover, .contact-info .social-links .social-icon:hover,
-.footer-col .social-links a:focus-visible, .contact-info .social-links .social-icon:focus-visible {
-    background-color: var(--secondary-color);
-    color: var(--light-text-color);
-    transform: translateY(-2px);
+.footer-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.footer-logos img {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1) opacity(0.8);
+}
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col li { margin-bottom: 0.75rem; }
+.footer-col a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-col a:hover {
+    color: var(--afys-primary);
     text-decoration: none;
 }
+.footer-col address p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.75rem;
+}
+.footer-col .social-links { display: flex; gap: 1rem; }
+.footer-col .social-links a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.footer-col .social-links a:hover { transform: translateY(-2px); color: var(--afys-primary); }
 .footer-bottom {
     text-align: center;
-    padding-top: 30px;
+    margin-top: 4rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255,255,255,0.1);
-    opacity: 0.8;
-}
-.footer-bottom p {
-    margin-bottom: 5px;
+    font-size: 0.9rem;
 }
 
 
-/* Responsive Design */
+/* 12. Responsive Design
+---------------------------------------- */
 @media (max-width: 992px) {
-    html { font-size: 93.75%; } 
-    h1 { font-size: 2.6rem; }
-    h2.section-title, .section-title-left, .page-header h1 { font-size: 2.2rem; }
-    h3, .news-card-title, .leadership-profile h3 { font-size: 1.7rem; } 
-    h4, .focus-card h3, .initiative-card h4, .program-sub-category h4 { font-size: 1.4rem; }
-    h5, .program-card h5 { font-size: 1.2rem; }
-
-    .hero-content h1 { font-size: 2.8rem; }
-    .hero-content p { font-size: 1.15rem; }
-
-    .news-list-item { grid-template-columns: 200px 1fr; gap: 25px; } 
-    .news-list-item-image img { height: 200px; }
-    .vision-mission-grid { grid-template-columns: 1fr; }
-    .program-list.two-column-list { columns: 1; -webkit-columns: 1; -moz-columns: 1; }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    h1 { font-size: 2.5rem; }
+    h2, .section-title { font-size: 2rem; }
+    .hero-content h1 { font-size: 3rem; }
+    .pathway-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 768px) {
-    html { font-size: 87.5%; } 
+    .section-padding { padding: 80px 0; }
     .nav-menu {
-        display: none; 
-        flex-direction: column;
+        display: none;
         position: absolute;
-        top: 100%; 
-        left: 0;
+        top: 80px; left: 0; right: 0;
+        flex-direction: column;
+        background: #fff;
+        padding: 1rem 0;
+        gap: 0;
+        box-shadow: var(--shadow-strong);
+    }
+    .nav-menu.active { display: flex; }
+    .nav-menu li { width: 100%; text-align: center; }
+    .nav-menu a {
+        padding: 1rem;
+        display: block;
         width: 100%;
-        background-color: var(--bg-color);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        padding: 10px 0;
-        border-top: 1px solid var(--border-color);
     }
-    .nav-menu.active {
-        display: flex;
-    }
-    .nav-menu li {
-        margin: 12px 20px; 
-        text-align: left; 
-    }
-    .nav-menu li a {
-        display: block; 
-        padding: 8px 0;
-    }
-    .nav-menu li a::after { display: none; } 
-    .nav-menu li a.active {
-        color: var(--secondary-color);
-        font-weight: bold;
-    }
-
-
     .menu-toggle {
         display: block;
+        background: none; border: none; font-size: 1.5rem; cursor: pointer;
     }
-
     .hero-content h1 { font-size: 2.2rem; }
-    .hero-content p { font-size: 1rem; }
-    .hero-content .btn { padding: 10px 20px; font-size: 0.9rem; margin-bottom: 10px; display: block; max-width: 280px; margin-left: auto; margin-right: auto;}
-
-    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-    .focus-grid { grid-template-columns: 1fr; }
-    .about-snippet .grid-halves { grid-template-columns: 1fr; text-align: center;}
-    .about-snippet-image { margin-bottom: 30px; }
-    .news-grid { grid-template-columns: 1fr; }
-    
-    .initiative-cards-container { grid-template-columns: 1fr; }
-    .program-cards-container { grid-template-columns: 1fr; }
-    .partner-logos-container { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
-
-    .news-list-item { grid-template-columns: 1fr; text-align: left; }
-    .news-list-item-image { margin: 0 auto 20px auto; max-width: 100%; height: 220px;} 
-
-    .contact-form-container { margin-top: 40px; }
-
-    .footer-grid { grid-template-columns: 1fr; text-align:left;} 
-    .footer-col h4::after { left: 0; transform: translateX(0); } 
-    .footer-col .social-links { text-align: left;} 
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 { font-size: 1.8rem; }
-    .hero-content p { font-size: 0.95rem; }
-    .stats-grid { grid-template-columns: 1fr; } 
-    .section-padding { padding: 60px 0; }
-    h1.page-header, h2.section-title, .section-title-left { font-size: 1.8rem; margin-bottom: 40px;}
-    h3, .news-card-title, .leadership-profile h3 { font-size: 1.5rem; } 
-    h4, .focus-card h3, .initiative-card h4, .program-sub-category h4 { font-size: 1.25rem; }
-    h5, .program-card h5 { font-size: 1.1rem; }
-
-    .container { padding-left: 1rem; padding-right: 1rem; }
-    .page-header { padding: 40px 0; }
+    .two-col-grid { grid-template-columns: 1fr; }
+    .news-grid-afys { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-logos { align-items: center; }
+    .footer-col .social-links { justify-content: center; }
 }

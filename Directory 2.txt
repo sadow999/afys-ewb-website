@@ -1,0 +1,25 @@
+afys-ewb-website/
+├── index.html
+├── afys-profile.html
+├── afys-news.html
+├── ewb-profile.html
+├── ewb-interview.html
+├── partnerships.html
+├── contact.html
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+├── images/
+│   ├── logo-afys.png
+│   ├── logo-ewb.png
+│   ├── ... (all OG images)
+│   ├── favicons/
+│   ├── hero/
+│   ├── pathways/
+│   ├── team/
+│   ├── partners/
+│   ├── news/afys/  <-- New subfolder
+│   ├── ewb/         <-- New subfolder
+│   └── interview/   <-- New subfolder
+└── CNAME
