@@ -325,4 +325,5 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 }
 @media (max-width: 480px) {
     .interview-author-image { width: 150px; height: 150px; }
+    .footer-logos img { padding: 0.5rem 0; }
 }
