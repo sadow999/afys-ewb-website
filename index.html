@@ -32,7 +32,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -46,6 +46,9 @@
             </a>
             <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-menu">
                 <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Activate dark mode">
+                <i class="fas fa-moon" aria-hidden="true"></i>
             </button>
             <ul class="nav-menu" id="main-nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -62,7 +65,7 @@
         <section class="hero" aria-labelledby="hero-heading" style="background-image: linear-gradient(rgba(40, 40, 40, 0.7), rgba(40, 40, 40, 0.7)), url('images/hero/portal-background.jpg');">
             <div class="hero-content container">
                 <h1 id="hero-heading">A Nexus for Science, Sustainability, and Water Security</h1>
-                <p>Welcome to the digital home of the Arab Foundation for Young Scientists (AFYS) and the Egyptian Water Bank (EWB). Discover how we are empowering the next generation of innovators and securing our most vital resource.</p>
+                <p>Welcome to the digital home of the Arab Foundation for Young Scientists (AFYS) and the Egyptian Water Bank (EWB). Join us in cultivating innovation and ensuring sustainable water solutions for communities everywhere.</p>
             </div>
         </section>
 
@@ -71,7 +74,7 @@
                 <h2 id="pathway-title" class="section-title">Explore Our Core Missions</h2>
                 <div class="pathway-grid">
                     <!-- AFYS Pathway Card -->
-                    <a href="afys-profile.html" class="pathway-card afys-card">
+                    <a href="afys-profile.html" class="pathway-card afys-card fade-in">
                         <div class="pathway-card-bg" style="background-image: url('images/pathways/pathway-afys.jpg');"></div>
                         <div class="pathway-content">
                             <img src="images/logo-afys.png" alt="Arab Foundation for Young Scientists Logo" class="pathway-logo">
@@ -82,7 +85,7 @@
                     </a>
 
                     <!-- EWB Pathway Card -->
-                    <a href="ewb-profile.html" class="pathway-card ewb-card">
+                    <a href="ewb-profile.html" class="pathway-card ewb-card fade-in">
                         <div class="pathway-card-bg" style="background-image: url('images/pathways/pathway-ewb.jpg');"></div>
                         <div class="pathway-content">
                             <img src="images/logo-ewb.png" alt="Egyptian Water Bank Logo" class="pathway-logo">
