@@ -27,23 +27,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const bodyEl = document.body;
     if (themeToggle) {
-        // Check saved theme
+        const updateThemeToggle = isDark => {
+            themeToggle.innerHTML = isDark
+                ? '<i class="fas fa-sun" aria-hidden="true"></i>'
+                : '<i class="fas fa-moon" aria-hidden="true"></i>';
+            themeToggle.setAttribute('aria-label', isDark ? 'Activate light mode' : 'Activate dark mode');
+            themeToggle.setAttribute('aria-pressed', isDark.toString());
+        };
+
+        // Apply saved theme on load
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
+        const isDarkStart = savedTheme === 'dark';
+        if (isDarkStart) {
             bodyEl.classList.add('dark');
-            themeToggle.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
-            themeToggle.setAttribute('aria-label', 'Activate light mode');
-            themeToggle.setAttribute('aria-pressed', 'true');
-        } else {
-            themeToggle.setAttribute('aria-label', 'Activate dark mode');
-            themeToggle.setAttribute('aria-pressed', 'false');
         }
+        updateThemeToggle(isDarkStart);
 
         themeToggle.addEventListener('click', () => {
             const isDark = bodyEl.classList.toggle('dark');
-            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
-            themeToggle.setAttribute('aria-label', isDark ? 'Activate light mode' : 'Activate dark mode');
-            themeToggle.setAttribute('aria-pressed', isDark.toString());
+            updateThemeToggle(isDark);
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     }
