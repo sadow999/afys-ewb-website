@@ -110,7 +110,7 @@ p { margin-bottom: 1.5rem; color: var(--text-secondary); }
 .section-padding { padding: 100px 0; }
 .bg-light { background-color: var(--light-bg); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.two-col-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; align-items: center; }
+.two-col-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; align-items: center; }
 
 /* 4. Buttons
 ---------------------------------------- */
@@ -181,25 +181,29 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 .ewb-card .btn-pathway { color: var(--ewb-primary); }
 .combined-vision .cta-buttons { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
 
-/* 8. Shared & Page-Specific Component Styles
+/* 8. Page-Specific Component Styles
 ---------------------------------------- */
+/* Glass Card & Image Styles */
 .card-glass { background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.7); border-radius: var(--border-radius-md); padding: 2.5rem; box-shadow: var(--shadow-light); }
 .vision-mission-image img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius-md); box-shadow: var(--shadow-light); }
+.profile-image { border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-strong); }
+
+/* Strategic Outlook/SWOT Grid */
 .swot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
 .swot-card { padding: 1.5rem; border-radius: var(--border-radius-md); background: var(--light-bg); border: 1px solid var(--border-color); }
 .swot-card h4 { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
 .swot-card h4 .fa-plus-circle, .swot-card h4 .fa-compass { color: var(--ewb-secondary); }
-.swot-card h4 .fa-minus-circle, .swot-card h4 .fa-bullseye { color: var(--afys-secondary); }
+.swot-card h4 .fa-minus-circle, .swot-card h4 .fa-bullseye, .swot-card h4 .fa-check-circle { color: var(--afys-secondary); }
 .swot-card h4 .fa-star { color: var(--afys-primary); }
 .swot-card ul { list-style: none; padding-left: 0; }
 .swot-card ul li { font-size: 0.95rem; padding-left: 1.5rem; position: relative; color: var(--text-secondary); }
 .swot-card ul li::before { content: '\2022'; font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; position: absolute; top: 0; left: 0.5em; }
-.swot-card h4 .fa-plus-circle + * { color: green; }
+.swot-card ul li::before { color: hsla(from var(--text-secondary) h s l); } /* Match text color */
 
 /* Interview Page Layout */
 .longform-article {line-height: 1.8;}
 .article-header { text-align: left; margin-bottom: 3rem; }
-.interview-header { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
+.interview-header { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; }
 .interview-author-image { width: 180px; height: 180px; flex-shrink: 0; }
 .interview-author-image img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-strong); }
 .article-kicker { font-weight: 600; color: var(--ewb-primary); text-transform: uppercase; font-size: 0.9rem; }
@@ -229,6 +233,12 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 .partner-logo-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-strong); }
 .partner-logo-item:hover img { filter: grayscale(0%) opacity(1); }
 
+/* Center for Empowerment Highlight Card */
+.center-highlight-card { max-width: 800px; margin: 0 auto; background: var(--light-bg); border-radius: var(--border-radius-md); padding: 2.5rem; box-shadow: var(--shadow-light); border: 1px solid var(--border-color); }
+.center-highlight-card img { max-height: 80px; margin: 0 auto 1.5rem; }
+.center-highlight-card h3 { font-size: 1.5rem; color: var(--text-primary); }
+.center-highlight-card p { color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 2rem; }
+
 /* EWB Page Components */
 .services-banner-full { padding: 2rem; background-color: #eef1f3; border-radius: var(--border-radius-md); box-shadow: var(--shadow-light); margin-bottom: 2rem; text-align: center; }
 .services-banner-full img { max-width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: var(--border-radius-sm); box-shadow: none; }
@@ -238,7 +248,7 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 .map-instructions ol { padding-left: 1.5rem; }
 .map-instructions li { margin-bottom: 0.5rem; font-size: 0.9rem;}
 
-/* 10. Footer
+/* 9. Footer
 ---------------------------------------- */
 .footer-main { background: var(--text-primary); color: rgba(255,255,255,0.7); padding: 80px 0 40px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr 1fr; gap: 2rem; }
@@ -256,7 +266,7 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 .footer-col .social-links a:hover { transform: translateY(-2px); color: var(--afys-primary); }
 .footer-bottom { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
 
-/* 11. Responsive Design
+/* 10. Responsive Design
 ---------------------------------------- */
 @media (max-width: 992px) {
     h1 { font-size: 2.5rem; }
@@ -264,9 +274,7 @@ header nav { display: flex; justify-content: space-between; align-items: center;
     .hero-content h1 { font-size: 3rem; }
     .pathway-grid, .two-col-grid { grid-template-columns: 1fr; }
     .two-col-grid .vision-mission-image { order: -1; }
-    .reverse-on-mobile { grid-template-areas: "text" "image"; }
-    .reverse-on-mobile > div:first-child { grid-area: text; }
-    .reverse-on-mobile > div:last-child { grid-area: image; }
+    .reverse-on-mobile > .vision-mission-image { order: -1; } /* Specific for Sohag section */
     .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -285,4 +293,7 @@ header nav { display: flex; justify-content: space-between; align-items: center;
     .footer-col .social-links { justify-content: center; }
     .partner-logo-item { flex-basis: 150px; }
     .news-grid-afys { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+    .interview-author-image { width: 150px; height: 150px; }
 }
