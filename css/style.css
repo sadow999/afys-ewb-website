@@ -262,6 +262,12 @@ header nav { display: flex; justify-content: space-between; align-items: center;
 .center-highlight-card h3 { font-size: 1.5rem; color: var(--text-primary); }
 .center-highlight-card p { color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 2rem; }
 
+/* Center Page Logo */
+.center-logo-large {
+    max-width: 200px;
+    margin: 0 auto 1.5rem;
+}
+
 /* EWB Page Components */
 .services-banner-full { padding: 2rem; background-color: #eef1f3; border-radius: var(--border-radius-md); box-shadow: var(--shadow-light); margin-bottom: 2rem; text-align: center; }
 .services-banner-full img { max-width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: var(--border-radius-sm); box-shadow: none; }
