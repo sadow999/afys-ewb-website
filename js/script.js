@@ -32,10 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (savedTheme === 'dark') {
             bodyEl.classList.add('dark');
             themeToggle.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
+            themeToggle.setAttribute('aria-label', 'Activate light mode');
+            themeToggle.setAttribute('aria-pressed', 'true');
+        } else {
+            themeToggle.setAttribute('aria-label', 'Activate dark mode');
+            themeToggle.setAttribute('aria-pressed', 'false');
         }
+
         themeToggle.addEventListener('click', () => {
             const isDark = bodyEl.classList.toggle('dark');
             themeToggle.innerHTML = isDark ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
+            themeToggle.setAttribute('aria-label', isDark ? 'Activate light mode' : 'Activate dark mode');
+            themeToggle.setAttribute('aria-pressed', isDark.toString());
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     }
