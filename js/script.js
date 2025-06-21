@@ -23,6 +23,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- Theme Toggle ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const bodyEl = document.body;
+    if (themeToggle) {
+        // Check saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            bodyEl.classList.add('dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
+        }
+        themeToggle.addEventListener('click', () => {
+            const isDark = bodyEl.classList.toggle('dark');
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    // --- Fade-in on scroll ---
+    const faders = document.querySelectorAll('.fade-in');
+    if (faders.length > 0) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        faders.forEach(el => observer.observe(el));
+    }
+
     // --- Dynamic Copyright Year ---
     const currentYearSpan = document.getElementById('currentYear');
     if (currentYearSpan) {
