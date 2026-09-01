@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFYS & EWB | A Nexus for Science, Sustainability, and Water Security</title>
+    <title>AFYS &amp; EWB | A Nexus for Science, Sustainability, and Water Security</title>
     <meta name="description" content="Welcome to the joint portal for the Arab Foundation for Young Scientists (AFYS) and the Egyptian Water Bank (EWB) — two interconnected entities driving innovation and sustainable development.">
-    
     <meta name="theme-color" content="#FFAD7A">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="AFYS & EWB | A Nexus for Science, Sustainability, and Water Security">
+    <meta property="og:title" content="AFYS &amp; EWB | A Nexus for Science, Sustainability, and Water Security">
     <meta property="og:description" content="Explore our dual mission: empowering young scientists with AFYS and ensuring water security with EWB.">
     <meta property="og:url" content="https://www.afys-ewb.org/index.html">
     <meta property="og:image" content="https://www.afys-ewb.org/images/og-image-home.jpg">
     <meta property="og:image:alt" content="A dynamic image showing the synergy between scientific innovation (AFYS) and water management (EWB).">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AFYS & EWB | A Nexus for Science, Sustainability, and Water Security">
+    <meta name="twitter:title" content="AFYS &amp; EWB | A Nexus for Science, Sustainability, and Water Security">
     <meta name="twitter:description" content="Explore our dual mission: empowering young scientists with AFYS and ensuring water security with EWB.">
     <meta name="twitter:image" content="https://www.afys-ewb.org/images/og-image-home.jpg">
     <meta name="twitter:site" content="@AFYSEWB">
@@ -35,8 +35,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- ebny button style. Same block as on partnerships.html — if you move it into
+         css/style.css, delete it from both pages. -->
+    <style>
+        .btn-ebny {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--afys-accent, #FFAD7A);
+            color: #1b1b1b;
+            border: none;
+        }
+        .btn-ebny:hover,
+        .btn-ebny:focus-visible { filter: brightness(0.94); }
+    </style>
 </head>
 <body>
+
     <header>
         <nav class="container">
             <a href="index.html" class="logo-link-main">
@@ -54,7 +70,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="afys-profile.html">About AFYS</a></li>
                 <li><a href="ewb-profile.html">About EWB</a></li>
-                <li><a href="afys-news.html">News & Articles</a></li>
+                <li><a href="afys-news.html">News &amp; Articles</a></li>
                 <li><a href="partnerships.html">Partners</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -83,7 +99,6 @@
                             <span class="btn-pathway">Explore AFYS <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-
                     <!-- EWB Pathway Card -->
                     <a href="ewb-profile.html" class="pathway-card ewb-card fade-in">
                         <div class="pathway-card-bg" style="background-image: url('images/pathways/pathway-ewb.jpg');"></div>
@@ -91,24 +106,27 @@
                             <img loading="lazy" src="images/logo-ewb.png" alt="Egyptian Water Bank Logo" class="pathway-logo">
                             <h3>Egyptian Water Bank</h3>
                             <p>Ensuring sustainable water management, financing critical water projects, and securing clean water access for all Egyptians.</p>
-                             <span class="btn-pathway">Discover EWB <i class="fas fa-arrow-right"></i></span>
+                            <span class="btn-pathway">Discover EWB <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
             </div>
         </section>
-        
+
         <section class="combined-vision section-padding bg-light" aria-labelledby="vision-title">
-             <div class="container text-center" style="max-width: 900px;">
+            <div class="container text-center" style="max-width: 900px;">
                 <h2 id="vision-title" class="section-title">Our Synergistic Vision</h2>
-                 <p class="lead-text">Led by Prof. Dr. Alaa Abdallah El-Sadek, AFYS and EWB operate in synergy. AFYS generates the scientific innovation and empowers the human capital needed to develop groundbreaking solutions. EWB then provides the strategic framework, institutional support, and financing mechanisms to implement these solutions on a national scale, particularly in the vital water sector. Together, we translate science into societal impact.</p>
-                 <div class="cta-buttons">
+                <p class="lead-text">Led by Prof. Dr. Alaa Abdallah El-Sadek, AFYS and EWB operate in synergy. AFYS generates the scientific innovation and empowers the human capital needed to develop groundbreaking solutions. EWB then provides the strategic framework, institutional support, and financing mechanisms to implement these solutions on a national scale, particularly in the vital water sector. Together, we translate science into societal impact.</p>
+                <div class="cta-buttons">
                     <a href="afys-news.html" class="btn btn-primary-orange">Recent News</a>
                     <a href="ewb-interview.html" class="btn btn-primary-blue">EWB In-Depth</a>
-                 </div>
+                    <a href="https://www.ebnyapp.com/i/arab-foundation-of-young-scientists" class="btn btn-ebny" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                        Our Opportunities on ebny
+                    </a>
+                </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer-main">
@@ -124,7 +142,7 @@
                     <ul>
                         <li><a href="afys-profile.html">About AFYS</a></li>
                         <li><a href="ewb-profile.html">About EWB</a></li>
-                        <li><a href="afys-news.html">News & Articles</a></li>
+                        <li><a href="afys-news.html">News &amp; Articles</a></li>
                         <li><a href="partnerships.html">Partners</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
@@ -146,11 +164,11 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> Arab Foundation for Young Scientists & Egyptian Water Bank . All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear"></span> Arab Foundation for Young Scientists &amp; Egyptian Water Bank . All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <script src="js/script.js"></script>
 </body>
 </html>
