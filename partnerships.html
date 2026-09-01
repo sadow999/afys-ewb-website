@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Partners | AFYS & EWB</title>
+    <title>Our Partners | AFYS &amp; EWB</title>
     <meta name="description" content="Explore the network of key partners collaborating with the Arab Foundation for Young Scientists (AFYS) and the Egyptian Water Bank (EWB) to drive innovation and sustainable development.">
-    
     <meta name="theme-color" content="#A9D6E5"> <!-- Neutral Theme -->
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Our Partners | AFYS & EWB">
+    <meta property="og:title" content="Our Partners | AFYS &amp; EWB">
     <meta property="og:description" content="Discover the governmental bodies, academic institutions, and NGOs that partner with us to achieve our shared goals.">
     <meta property="og:url" content="https://www.afys-ewb.org/partnerships.html">
     <meta property="og:image" content="https://www.afys-ewb.org/images/og-image-partnerships.jpg">
@@ -17,7 +17,7 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Our Partners | AFYS & EWB">
+    <meta name="twitter:title" content="Our Partners | AFYS &amp; EWB">
     <meta name="twitter:description" content="Discover the governmental bodies, academic institutions, and NGOs that partner with us to achieve our shared goals.">
     <meta name="twitter:image" content="https://www.afys-ewb.org/images/og-image-partnerships.jpg">
     <meta name="twitter:site" content="@AFYSEWB">
@@ -35,8 +35,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- ebny partnership styles. Move this block into css/style.css (at the end of
+         the file) once you are happy with it, and delete it from here. -->
+    <style>
+        .ebny-partner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 4rem;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg,
+                        rgba(255, 173, 122, 0.12),
+                        rgba(169, 214, 229, 0.18));
+        }
+
+        .ebny-partner__text { flex: 1 1 340px; }
+
+        .ebny-partner__badge {
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: var(--afys-primary, #005a9c);
+            color: #fff;
+        }
+
+        .ebny-partner h3 { margin: 0 0 0.75rem; color: var(--text-primary, #222); }
+        .ebny-partner p  { margin-bottom: 1.5rem; max-width: 62ch; }
+
+        .ebny-partner__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+        .ebny-partner__logo {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* Button variant. Inherits padding, radius and transition from .btn */
+        .btn-ebny {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--afys-accent, #FFAD7A);
+            color: #1b1b1b;
+            border: none;
+        }
+        .btn-ebny:hover,
+        .btn-ebny:focus-visible { filter: brightness(0.94); }
+
+        @media (max-width: 600px) {
+            .ebny-partner { padding: 1.75rem; gap: 1.75rem; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <nav class="container">
             <a href="index.html" class="logo-link-main">
@@ -54,7 +114,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="afys-profile.html">About AFYS</a></li>
                 <li><a href="ewb-profile.html">About EWB</a></li>
-                <li><a href="afys-news.html">News & Articles</a></li>
+                <li><a href="afys-news.html">News &amp; Articles</a></li>
                 <li><a href="partnerships.html">Partners</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -71,7 +131,8 @@
 
         <section class="section-padding" aria-labelledby="partners-list-heading">
             <div class="container">
-                <h2 id="partners-list-heading" class="section-title">Key Partners & Supporters</h2>
+                <h2 id="partners-list-heading" class="section-title">Key Partners &amp; Supporters</h2>
+
                 <div class="partner-logos-flex-container">
                     <div class="partner-logo-item">
                         <a href="https://www.asu.edu.eg/english/" target="_blank" rel="noopener noreferrer" title="Ain Shams University">
@@ -98,7 +159,7 @@
                             <img loading="lazy" src="images/partners/helwan-university-logo.png" alt="Helwan University Official Logo">
                         </a>
                     </div>
-                     <div class="partner-logo-item">
+                    <div class="partner-logo-item">
                         <a href="https://technology4smes.unescwa.org/" target="_blank" rel="noopener noreferrer" title="ESCWA Technology Centre">
                             <img loading="lazy" src="images/partners/escwa-tech-centre-logo.png" alt="ESCWA Technology Centre Logo">
                         </a>
@@ -113,22 +174,22 @@
                             <img loading="lazy" src="images/partners/agricultural-bank-egypt-logo.png" alt="Agricultural Bank of Egypt Logo">
                         </a>
                     </div>
-                     <div class="partner-logo-item">
+                    <div class="partner-logo-item">
                         <a href="https://eea.org.eg/" target="_blank" rel="noopener noreferrer" title="Egyptian Engineers Syndicate">
                             <img loading="lazy" src="images/partners/engineers-syndicate-egypt-logo.png" alt="Egyptian Engineers Syndicate Logo">
                         </a>
                     </div>
                     <div class="partner-logo-item">
-                        <a href="https://aast.edu/" target="_blank" rel="noopener noreferrer" title="Arab Academy for Science, Technology & Maritime Transport (AASTMT)">
-                            <img loading="lazy" src="images/partners/aastmt-logo.png" alt="Arab Academy for Science, Technology & Maritime Transport (AASTMT) Logo">
+                        <a href="https://aast.edu/" target="_blank" rel="noopener noreferrer" title="Arab Academy for Science, Technology &amp; Maritime Transport (AASTMT)">
+                            <img loading="lazy" src="images/partners/aastmt-logo.png" alt="Arab Academy for Science, Technology &amp; Maritime Transport (AASTMT) Logo">
                         </a>
                     </div>
-                     <div class="partner-logo-item">
+                    <div class="partner-logo-item">
                         <a href="https://te.eg/wps/portal/te/Personal" target="_blank" rel="noopener noreferrer" title="Telecom Egypt">
                             <img loading="lazy" src="images/partners/telecom-egypt-logo.png" alt="Telecom Egypt Logo">
                         </a>
                     </div>
-                     <div class="partner-logo-item">
+                    <div class="partner-logo-item">
                         <a href="https://cu.edu.eg/Home" target="_blank" rel="noopener noreferrer" title="Cairo University">
                             <img loading="lazy" src="images/partners/cairo-university-nanotech-logo.png" alt="Cairo University Logo">
                         </a>
@@ -138,30 +199,33 @@
                             <img loading="lazy" src="images/partners/nile-university-logo.png" alt="Nile University Logo">
                         </a>
                     </div>
+                    <!-- ebny logo tile. Remove this block if you do not have the logo file yet. -->
+                    <div class="partner-logo-item">
+                        <a href="https://www.ebnyapp.com/i/arab-foundation-of-young-scientists" target="_blank" rel="noopener noreferrer" title="ebny — opportunity discovery platform">
+                            <img loading="lazy" src="images/partners/ebny-logo.png" alt="ebny Logo">
+                        </a>
+                    </div>
                 </div>
 
-                <!-- ===== ebny digital platform partnership ===== -->
-<div class="ebny-partner-banner">
-  <div class="ebny-partner-banner__text">
-    <span class="ebny-partner-banner__eyebrow">Digital Platform Partner</span>
-    <h3>Find our events and opportunities on ebny</h3>
-    <p>AFYS now publishes its events, calls and announcements on <strong>ebny</strong> — a discovery
-       platform that keeps families and young people on top of opportunities nearby and worldwide,
-       across competitions, camps, tryouts, arts, internships, enrichment and innovation. On our ebny
-       page you can browse what we have open, apply faster, and message us directly.</p>
-    <div class="ebny-partner-banner__actions">
-      <a href="https://www.ebnyapp.com/i/arab-foundation-of-young-scientists"
-         class="btn btn-ebny" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-bullhorn" aria-hidden="true"></i>
-        Visit AFYS on ebny
-      </a>
-      <a href="afys-news.html" class="btn btn-primary-blue">Browse our news</a>
-    </div>
-  </div>
-  <img loading="lazy" class="ebny-partner-banner__logo"
-       src="images/partners/ebny-logo.png"
-       alt="ebny opportunity discovery platform logo">
-</div>
+                <!-- ===== ebny platform partnership ===== -->
+                <div class="ebny-partner">
+                    <div class="ebny-partner__text">
+                        <span class="ebny-partner__badge">Platform partner</span>
+                        <h3>Find our events and opportunities on ebny</h3>
+                        <p>AFYS now publishes its events, open calls and announcements on <strong>ebny</strong>, a platform that keeps families and young people on top of opportunities nearby and worldwide, across sports, tryouts, competitions, camps, arts, jobs, internships, enrichment and innovation. On our ebny page you can browse what we have open, apply faster, and message us directly.</p>
+                        <div class="ebny-partner__actions">
+                            <a href="https://www.ebnyapp.com/i/arab-foundation-of-young-scientists"
+                               class="btn btn-ebny" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                                Visit AFYS on ebny
+                            </a>
+                            <a href="afys-news.html" class="btn btn-primary-blue">Browse our news</a>
+                        </div>
+                    </div>
+                    <img loading="lazy" class="ebny-partner__logo"
+                         src="images/partners/ebny-logo.png"
+                         alt="ebny opportunity discovery platform logo">
+                </div>
 
                 <div class="card-glass two-col-grid" style="margin-top: 5rem;">
                     <div>
@@ -173,18 +237,20 @@
                     <div style="padding: 1rem;">
                         <h4 style="margin-bottom: 1rem;">Areas for Collaboration:</h4>
                         <ul class="fa-ul">
-                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--afys-primary)"></i></span>Joint Research & Development</li>
-                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--afys-primary)"></i></span>Sponsorship of Programs & Events</li>
-                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--afys-primary)"></i></span>Incubator & Startup Mentorship</li>
+                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--afys-primary)"></i></span>Joint Research &amp; Development</li>
+                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--afys-primary)"></i></span>Sponsorship of Programs &amp; Events</li>
+                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--afys-primary)"></i></span>Incubator &amp; Startup Mentorship</li>
                             <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--ewb-primary)"></i></span>Financing for Water Infrastructure</li>
-                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--ewb-primary)"></i></span>Technology & Expertise Sharing</li>
-                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--ewb-primary)"></i></span>Policy Advocacy & Awareness Campaigns</li>
+                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--ewb-primary)"></i></span>Technology &amp; Expertise Sharing</li>
+                            <li><span class="fa-li"><i class="fas fa-check-circle" style="color:var(--ewb-primary)"></i></span>Policy Advocacy &amp; Awareness Campaigns</li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </section>
     </main>
+
     <footer class="footer-main">
         <div class="container">
             <div class="footer-grid">
@@ -198,7 +264,7 @@
                     <ul>
                         <li><a href="afys-profile.html">About AFYS</a></li>
                         <li><a href="ewb-profile.html">About EWB</a></li>
-                        <li><a href="afys-news.html">News & Articles</a></li>
+                        <li><a href="afys-news.html">News &amp; Articles</a></li>
                         <li><a href="partnerships.html">Partners</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
@@ -220,10 +286,11 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> Arab Foundation for Young Scientists & Egyptian Water Bank. All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear"></span> Arab Foundation for Young Scientists &amp; Egyptian Water Bank. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>
