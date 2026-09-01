@@ -247,7 +247,31 @@ img { max-width: 100%; height: auto; }
 .eh-news-item .eh-link { margin-top: auto; align-self: flex-start; }
 
 /* --------------------------------------------------------------------------
-   7. Leadership
+   7. Flagship initiatives
+   -------------------------------------------------------------------------- */
+.eh-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--eh-gap);
+}
+.eh-card {
+  padding: 1.75rem;
+  background: var(--eh-surface);
+  border: 1px solid var(--eh-line);
+  border-radius: var(--eh-radius);
+  border-top: 3px solid var(--eh-accent);
+}
+.eh-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; line-height: 1.35; color: var(--eh-ink); }
+.eh-card__meta {
+  margin: 0 0 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--eh-ink-soft);
+}
+.eh-card p:last-child { margin: 0; color: var(--eh-ink-soft); font-size: 0.95rem; }
+
+/* --------------------------------------------------------------------------
+   8. Leadership
    -------------------------------------------------------------------------- */
 .eh-leader {
   display: grid;
