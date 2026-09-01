@@ -1,0 +1,344 @@
+/* ==========================================================================
+   enhancements.css
+   Loaded AFTER css/style.css. Everything new is namespaced .eh-* so it cannot
+   collide with existing rules. The "global fixes" section deliberately
+   overrides style.css; it relies on load order, not on !important.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   Falls back to sensible values if the variable is missing from style.css.
+   -------------------------------------------------------------------------- */
+:root {
+  --eh-ink:        #16232e;
+  --eh-ink-soft:   #4a5b68;
+  --eh-line:       rgba(22, 35, 46, 0.12);
+  --eh-surface:    #ffffff;
+  --eh-surface-alt:#f5f8fa;
+
+  /* Accent, darkened from #FFAD7A so it passes contrast when it carries text. */
+  --eh-accent:     #C25E22;
+  --eh-accent-soft:#FFAD7A;
+  --eh-blue:       #005a9c;
+
+  --eh-measure:    64ch;
+  --eh-radius:     10px;
+  --eh-gap:        clamp(1.5rem, 4vw, 3rem);
+  --eh-section:    clamp(3.5rem, 8vw, 6rem);
+}
+
+/* Dark mode. Covers the three selectors a theme toggle commonly sets, so this
+   works whichever one js/script.js uses. */
+body.dark-mode,
+body.dark,
+[data-theme="dark"] {
+  --eh-ink:        #eef3f6;
+  --eh-ink-soft:   #a9bac6;
+  --eh-line:       rgba(255, 255, 255, 0.16);
+  --eh-surface:    #172029;
+  --eh-surface-alt:#1e2932;
+  --eh-accent:     #FFAD7A;
+}
+
+/* --------------------------------------------------------------------------
+   2. Global fixes
+   -------------------------------------------------------------------------- */
+
+/* Keyboard focus must be visible on every interactive element. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--eh-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Images carry width/height attributes in the markup; this keeps them fluid
+   without reintroducing layout shift. */
+img { max-width: 100%; height: auto; }
+
+/* Respect a reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in, .eh-reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* Skip link for keyboard and screen-reader users. */
+.eh-skip {
+  position: absolute;
+  left: 0.5rem;
+  top: -4rem;
+  z-index: 999;
+  padding: 0.7rem 1.1rem;
+  background: var(--eh-ink);
+  color: #fff;
+  border-radius: 0 0 var(--eh-radius) var(--eh-radius);
+  text-decoration: none;
+  transition: top 0.18s ease;
+}
+.eh-skip:focus { top: 0; }
+
+/* Replaces the inline hsla(from ...) relative-colour gradient, which silently
+   drops the whole declaration in browsers that do not support it. */
+.page-header-simple {
+  background: linear-gradient(45deg,
+              rgba(255, 173, 122, 0.14),
+              rgba(169, 214, 229, 0.20));
+}
+
+/* Partner logo wall: one visual weight for logos of wildly different shapes. */
+.partner-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+  min-height: 120px;
+  background: var(--eh-surface);
+  border: 1px solid var(--eh-line);
+  border-radius: var(--eh-radius);
+}
+.partner-logo-item img {
+  max-height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.partner-logo-item a:hover img,
+.partner-logo-item a:focus-visible img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout helpers
+   -------------------------------------------------------------------------- */
+.eh-section { padding-block: var(--eh-section); }
+.eh-section--alt { background: var(--eh-surface-alt); }
+
+.eh-head { max-width: var(--eh-measure); margin-bottom: 2.5rem; }
+.eh-head--center { margin-inline: auto; text-align: center; }
+.eh-head h2 { margin: 0 0 0.75rem; color: var(--eh-ink); line-height: 1.15; }
+.eh-head p  { margin: 0; color: var(--eh-ink-soft); }
+
+.eh-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.eh-row h2 { margin: 0; color: var(--eh-ink); }
+
+.eh-center-note { text-align: center; margin-top: 2.5rem; }
+
+/* Available to screen readers, removed from the visual layout. */
+.eh-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.eh-link {
+  color: var(--eh-accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.18s ease;
+}
+.eh-link:hover, .eh-link:focus-visible { border-bottom-color: currentColor; }
+
+/* --------------------------------------------------------------------------
+   4. Hero additions
+   -------------------------------------------------------------------------- */
+.eh-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Figures band
+   A quiet inline row with hairline dividers, not a grid of shadowed cards.
+   -------------------------------------------------------------------------- */
+.eh-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+  border-block: 1px solid var(--eh-line);
+}
+.eh-figure {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid var(--eh-line);
+}
+.eh-figure:last-child { border-right: 0; }
+.eh-figure__value {
+  display: block;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--eh-ink);
+  font-variant-numeric: tabular-nums;
+}
+.eh-figure__label {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--eh-ink-soft);
+  font-size: 0.95rem;
+}
+@media (max-width: 640px) {
+  .eh-figure { border-right: 0; border-bottom: 1px solid var(--eh-line); }
+  .eh-figure:last-child { border-bottom: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   6. News
+   -------------------------------------------------------------------------- */
+.eh-news {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--eh-gap);
+}
+.eh-news-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--eh-surface);
+  border: 1px solid var(--eh-line);
+  border-radius: var(--eh-radius);
+  overflow: hidden;
+}
+.eh-news-item img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+.eh-news-item__body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.eh-news-item time {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--eh-accent);
+  font-variant-numeric: tabular-nums;
+}
+.eh-news-item h3 { margin: 0 0 0.6rem; font-size: 1.15rem; line-height: 1.35; }
+.eh-news-item h3 a { color: var(--eh-ink); text-decoration: none; }
+.eh-news-item h3 a:hover { text-decoration: underline; }
+.eh-news-item p { margin: 0 0 1.25rem; color: var(--eh-ink-soft); font-size: 0.95rem; }
+.eh-news-item .eh-link { margin-top: auto; align-self: flex-start; }
+
+/* --------------------------------------------------------------------------
+   7. Leadership
+   -------------------------------------------------------------------------- */
+.eh-leader {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr;
+  gap: var(--eh-gap);
+  align-items: start;
+}
+.eh-leader img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--eh-radius);
+}
+.eh-leader h3 { margin: 0 0 0.25rem; color: var(--eh-ink); }
+.eh-leader__role { margin: 0 0 1.25rem; color: var(--eh-accent); font-weight: 600; }
+.eh-leader p { max-width: var(--eh-measure); color: var(--eh-ink-soft); }
+@media (max-width: 700px) {
+  .eh-leader { grid-template-columns: 1fr; }
+  .eh-leader img { max-width: 220px; }
+}
+
+/* --------------------------------------------------------------------------
+   8. Logo strip (homepage teaser for the partners page)
+   -------------------------------------------------------------------------- */
+.eh-logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+.eh-logo-strip img {
+  max-height: 48px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.eh-logo-strip a:hover img,
+.eh-logo-strip a:focus-visible img { filter: grayscale(0); opacity: 1; }
+
+/* --------------------------------------------------------------------------
+   9. ebny partnership
+   -------------------------------------------------------------------------- */
+.eh-ebny {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--eh-gap);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--eh-radius);
+  border: 1px solid var(--eh-line);
+  background: linear-gradient(135deg,
+              rgba(255, 173, 122, 0.12),
+              rgba(169, 214, 229, 0.18));
+}
+.eh-ebny__text { flex: 1 1 340px; }
+.eh-ebny__badge {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--eh-blue);
+  color: #fff;
+}
+.eh-ebny h2, .eh-ebny h3 { margin: 0 0 0.75rem; color: var(--eh-ink); }
+.eh-ebny p { margin: 0 0 1.5rem; max-width: var(--eh-measure); color: var(--eh-ink-soft); }
+.eh-ebny__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.eh-ebny__logo { flex: 0 0 auto; width: 100%; max-width: 190px; height: auto; }
+
+/* Button variant. Inherits padding, radius and transition from .btn. */
+.btn-ebny {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--eh-accent);
+  color: #fff;
+  border: none;
+}
+.btn-ebny:hover, .btn-ebny:focus-visible { filter: brightness(1.08); }
+
+/* --------------------------------------------------------------------------
+   10. Reveal on scroll
+   Elements start hidden ONLY when JS is present, so content is never lost if
+   the script fails. js/enhancements.js adds .eh-js to <html>.
+   -------------------------------------------------------------------------- */
+.eh-js .eh-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.eh-js .eh-reveal.is-visible { opacity: 1; transform: none; }
