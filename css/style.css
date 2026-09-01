@@ -327,3 +327,63 @@ header nav { display: flex; justify-content: space-between; align-items: center;
     .interview-author-image { width: 150px; height: 150px; }
     .footer-logos img { padding: 0.5rem 0; }
 }
+
+/* ==========================================================
+   ebny partnership (added <date>)
+   ========================================================== */
+.ebny-partner-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg,
+              rgba(255, 173, 122, 0.12),
+              rgba(169, 214, 229, 0.18));
+}
+
+.ebny-partner-banner__text { flex: 1 1 320px; }
+
+.ebny-partner-banner__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--afys-primary, #005a9c);
+  color: #fff;
+}
+
+.ebny-partner-banner h3 { margin: 0 0 0.75rem; color: var(--text-primary, #222); }
+.ebny-partner-banner p  { margin-bottom: 1.5rem; }
+
+.ebny-partner-banner__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.ebny-partner-banner__logo {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+/* Button variant, inherits padding/radius/transition from .btn */
+.btn-ebny {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--afys-accent, #FFAD7A);
+  color: #1b1b1b;
+  border: none;
+}
+.btn-ebny:hover,
+.btn-ebny:focus-visible { filter: brightness(0.94); transform: translateY(-2px); }
+
+@media (max-width: 600px) {
+  .ebny-partner-banner { padding: 1.75rem; }
+}
